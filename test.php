@@ -1,15 +1,17 @@
 <?php
+// test.php - https://github.com/hasanhameed89/bee-php-profiler-benchmark/
 
 require_once('lib/Bee_Profiler.php');
 require_once('lib/Bee_Benchmark_Function.php');
 
 Bee_Profiler::setMarker('Begining');
+
 class A{
-public static function f1 ($array) {
-$count = count($array);
-	for($i=0;$i<$count;$i++) {
+	public static function f1 ($array) {
+		$count = count($array);
+		for($i=0;$i<$count;$i++) {
+		}
 	}
-}
 }
 function f2 ($array) {
 	foreach($array as $k=>$val) {
@@ -35,7 +37,7 @@ $profiler->call('f2', array(2,4,6,8));
 
 $profiler->stop();
 
-Bee_Profiler::setMarker('mid');
+Bee_Profiler::setMarker('Middle');
 // this will get the func name which is fastest of all.
 //echo $profiler->getFastestFunc();
 
