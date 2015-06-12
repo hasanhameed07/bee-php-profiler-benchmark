@@ -1,4 +1,4 @@
-# bee-php-benchmark
+# bee-php-profiler-benchmark
 ####An easy to use and super accurate Benchmark & Profiling library for PHP.
 
 `Bee_Profiler` is main library for profiling while `Bee_Profiler_Function` is a library to benchmark functions and requires `Bee_Profiler`.
