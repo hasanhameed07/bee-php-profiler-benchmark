@@ -1,5 +1,5 @@
 <?php
-class Bee_Benchmark
+class Bee_Profiler
 {
 
 	// --- Private properties ---
@@ -52,7 +52,7 @@ class Bee_Benchmark
 	{
 		if ($this->_auto) {
 			$this->stop();
-			$this->display();
+			$this->displayResults();
 		}
 	}
 
@@ -115,7 +115,7 @@ class Bee_Benchmark
 	/**
 	 * Outputs final report of all sections
 	 */
-	public function display ()
+	public function displayResults ()
 	{
 		$str = '<h1>Bee Benchmark Results</h1><table border="1" cellpadding="5"><tr><th>No.</th><th>Section</th><th>Time</th>';
 		$i = 1;
@@ -129,7 +129,7 @@ class Bee_Benchmark
 		}
 
 		$str .= '</table>'; 
-		self::pr($str);
+		print($str);
 	}
 
 
@@ -170,9 +170,9 @@ class Bee_Benchmark
 	/**
 	 * Display final report of all markers
 	 */
-	public static function displayResults ()
+	public static function displayMarkerResults ()
 	{
-		$str = '<h1>Bee Benchmark Results</h1>';
+		$str = '<h1>Bee Benchmark Markers Results</h1><table border="1" cellpadding="5"><tr><th>No.</th><th>Marker</th><th>Time</th>';
 		$keys = array_keys(self::$_markers);
 		$count = count($keys);
 
@@ -188,20 +188,17 @@ class Bee_Benchmark
 			$t2 = self::$_markers[$prev];
 			$time = $t1 - $t2;
 
-			$str .= "{$marker1} to {$marker2}: {$time} sec.<br />"; 
+			$str .= '<tr>';
+			$str .= "<td>{$i}</td><td>{$marker1} to {$marker2}</td><td>{$time} sec.</td>"; 
+			$str .= '</tr>'; 
 		}
 
 		$total = self::$_markers[$keys[$count-1]] - self::$_markers[$keys[0]];
-		$str .= "Total time : {$total} sec.<br />";
+		$str .= "<td>{$i}</td><td>Total time</td><td>{$total} sec.</td>";
 
-		self::pr($str);
+		print($str);
 	}
 
-	public static function pr($str) {
-		print '<pre>';
-		print_r($str);
-		print '</pre>';
-	}
 
-} // Bee_Benchmark end
+} // Bee_Profiler end
 ?>

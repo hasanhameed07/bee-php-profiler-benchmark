@@ -2,38 +2,6 @@
 /**
  * Function Profiling extention for Bee_Benchmark
  *
- * Examples:
- *
- * <code>
- *	// Auto start, stop & display
- *
- * $func = new Bee_Benchmark_Function(true);
- *
- *	// f1 is a predefined function 99 is its param.
- * $func->call('f1', 99);
- *
- *
- *	// Manual start, stop & display
- *
- * $profiler = new Bee_Benchmark_Function(false, 1000);	// 1000 times to execute
- * $profiler->start();
- *
- * $profiler->call('f1', 99);
- * $profiler->call('f2', array(2, 4));
- *	// call more functions here...											
- *
- * $profiler->stop();
- *
- *	// this will get the func name which is fastest of all.
- * echo $profiler->getFastestFunc();
- *
- *	// or compare two functions by percentage.
- * $profiler->showFastestBetween('f1', 'f3');
- *
- *	// or display full report (this gets called by profiler in auto mode)
- * $profiler->display();
- * </code>
- *
  *
  * @author	Hasan Hameed <theculpritz@hotmail.com>
  * @version	1.0.0
@@ -95,7 +63,7 @@ class Bee_Benchmark_Function
 	{
 		if ($this->_auto) {
 			$this->stop();
-			$this->display();
+			$this->displayResults();
 		}
 	}
 
@@ -105,7 +73,7 @@ class Bee_Benchmark_Function
 	 */
 	public function start ()
 	{
-		$this->_profiler = new Bee_Benchmark();
+		$this->_profiler = new Bee_Profiler();
 		$this->_profiler->start();
 	}
 
@@ -129,7 +97,8 @@ class Bee_Benchmark_Function
 	public function call ()
 	{
 		$args = func_get_args();
-		$func = $args[0]; unset($args[0]);
+		$func = $args[0]; 
+		unset($args[0]);
 		$param = $args;
 
 		$this->func[$func]['name'] = $func;
@@ -164,7 +133,7 @@ class Bee_Benchmark_Function
 			$str = "{$func1}() is faster than {$func2}() by {$per}%";
 		}
 
-		Bee_Benchmark::pr($str);
+		print($str);
 	}
 
 
@@ -193,9 +162,9 @@ class Bee_Benchmark_Function
 	/**
 	 * Outputs final report of all functions including global timer
 	 */
-	public function display ()
+	public function displayResults ()
 	{
-		$this->_profiler->display();
+		$this->_profiler->displayResults();
 	}
 
 
