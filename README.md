@@ -1,9 +1,11 @@
 # bee-php-benchmark
-####An easy to use and super accurate Benchmark library for PHP.
+####An easy to use and super accurate Benchmark & Profiling library for PHP.
 
-`Bee_Benchmark` is main library for profiling while `Bee_Benchmark_Function` is a library to benchmark functions and require `Bee_Benchmark`.
+`Bee_Benchmark` is main library for profiling while `Bee_Benchmark_Function` is a library to benchmark functions and requires `Bee_Benchmark`.
 
-### Basic usage
+### Profiling
+
+#### Basic usage
 This will auto generate report at the script end with auto start & stop
 ```php
 require_once('lib/Benchmark.php');
@@ -12,7 +14,7 @@ $benchmark = new Bee_Benchmark(true);
 // your code
   // more code here
 ```
-### Custom start & stop
+#### Custom start & stop
 ```php
 require_once('lib/Benchmark.php');
 
@@ -23,16 +25,17 @@ $benchmark->start();
 $benchmark->stop();
 $benchmark->displayResults();
 ```
-### Custom markers
+#### Custom markers
 Setting multiple static markers between your code allows you to compare time difference.
 ```php
 require_once('lib/Benchmark.php');
 
 Bee_Benchmark::setMarker('Begining');
-// your code
+// your code here
   Bee_Benchmark::setMarker('Mid');
   // more code here
 Bee_Benchmark::setMarker('Ending');
+
 Bee_Benchmark::displayMarkerResults();
 
 // Outputs something like
