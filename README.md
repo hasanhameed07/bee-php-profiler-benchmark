@@ -68,7 +68,9 @@ $profiler->start();
 
 $profiler->call('f1', array(2,4,6,8));
 $profiler->call('f2', array(2,4,6,8));
-// call more functions here...											
+// call more functions here...	
+// even static method of a class
+// $profiler->call('Math::sum', 2, 2);										
 
 $profiler->stop();
 $profiler->displayResults(); // or display full report (this gets called by profiler in auto mode)
@@ -82,7 +84,7 @@ echo $profiler->getFastestFunc();
 
 #### Compare difference between two functions
 ```php
-// make call() to function prior to show this report
+// make call() to functions prior to show this report
 $profiler->showFastestBetween('f1', 'f2');
 ```
 
