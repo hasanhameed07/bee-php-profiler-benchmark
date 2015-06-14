@@ -1,11 +1,11 @@
 <?php
-/**
- * Function Profiling extention for Bee_Benchmark
+ /**
+ * Function Benchmarking extention for Bee_Profiler
  *
  *
- * @author	Hasan Hameed <theculpritz@hotmail.com>
- * @version	1.0.0
- * @date	9-06-2009
+ * @author  Hasan Hameed <hasan.hameed07@gmail.com>
+ * @version 1.0.0
+ * @see https://github.com/hasanhameed07/bee-php-benchmark
  */
 class Bee_Benchmark_Function
 {
