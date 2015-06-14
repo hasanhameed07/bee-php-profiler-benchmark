@@ -88,3 +88,4 @@ echo $profiler->getFastestFunc();
 $profiler->showFastestBetween('f1', 'f2');
 ```
 
+Original Author: Hasan Hameed <hasan.hameed07@gmail.com>
