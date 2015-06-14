@@ -1,4 +1,12 @@
 <?php
+/**
+ * Profiling library
+ *
+ *
+ * @author  Hasan Hameed <hasan.hameed07@gmail.com>
+ * @version 1.0.0
+ * @see https://github.com/hasanhameed07/bee-php-benchmark
+ */
 class Bee_Profiler
 {
 
